@@ -1,5 +1,8 @@
 import javax.swing.JFrame;
 import java.awt.HeadlessException;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class GameFrame extends JFrame {
 
@@ -14,6 +17,10 @@ public class GameFrame extends JFrame {
         mainMenu = new MainMenu(this);
         this.add(mainMenu);
         this.setVisible(true);
+
+        KeyboardFocusManager
+                .getCurrentKeyboardFocusManager()
+                .addKeyEventDispatcher(new MinesweeperKeyDispatcher(this));
     }
 
     public void newGame(int gameWidth, int gameHeight, int mines) {
@@ -25,16 +32,20 @@ public class GameFrame extends JFrame {
     }
 
     public void endGame() {
-        gamePanel.setVisible(false);
-        this.remove(gamePanel);
-        this.add(mainMenu);
-        this.setFrameSize(400, 500);
+        if (gamePanel != null) {
+            gamePanel.setVisible(false);
+            this.remove(gamePanel);
+            this.add(mainMenu);
+            this.setFrameSize(400, 500);
 
-        gamePanel = null;
+            gamePanel = null;
+        }
     }
 
     public void setFrameSize(int width, int height) {
         this.setSize(width,height);
         this.setLocationRelativeTo(null);
     }
+
+
 }
