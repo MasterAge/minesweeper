@@ -1,0 +1,12 @@
+
+
+Done:
+icons for mine and flag
+mines count
+timer
+guide mode
+main menu
+difficulties
+different window sizes
+fix highlight mode toggle bug with tile borders
+
