@@ -1,8 +1,6 @@
 import javax.swing.JFrame;
 import java.awt.HeadlessException;
 import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class GameFrame extends JFrame {
 

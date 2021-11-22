@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -52,10 +53,8 @@ public class GameManager {
         this.scoreBar.setTotalMines(this.maxMines);
         this.scoreBar.setManager(this);
 
-        List<Integer> mineLocations = IntStream.range(0, totalTiles).boxed().collect(Collectors.toList());
-        Collections.shuffle(mineLocations);
-        mineLocations.subList(0, this.maxMines)
-                     .forEach(mine -> tiles[mine / gameWidth][mine % gameHeight] = MINE);
+        new Random().ints(this.maxMines, 0, totalTiles)
+                    .forEach(mine -> tiles[mine / gameWidth][mine % gameHeight] = MINE);
 
         for (int i = 0; i < gameWidth; i++) {
             for (int j = 0; j < gameHeight; j++) {
