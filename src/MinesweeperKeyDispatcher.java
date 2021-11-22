@@ -1,6 +1,9 @@
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
 
+/**
+ * A key dispatcher for catching the escape key.
+ */
 public class MinesweeperKeyDispatcher implements KeyEventDispatcher {
 
     private final GameFrame gameFrame;

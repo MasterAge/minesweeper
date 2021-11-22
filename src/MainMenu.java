@@ -18,7 +18,7 @@ public class MainMenu extends JPanel {
         heading.setFont(new GameFont(56));
         heading.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JButton easyGame = menuButton("Easy", new MouseAdapter() {
+        JButton easyGame = makeMenuButton("Easy", new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // 10% of spaces are mines
@@ -26,7 +26,7 @@ public class MainMenu extends JPanel {
             }
         });
 
-        JButton mediumGame = menuButton("Medium", new MouseAdapter() {
+        JButton mediumGame = makeMenuButton("Medium", new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // 25% of spaces are mines
@@ -34,7 +34,7 @@ public class MainMenu extends JPanel {
             }
         });
 
-        JButton hardGame = menuButton("Hard", new MouseAdapter() {
+        JButton hardGame = makeMenuButton("Hard", new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // A lot of mines
@@ -52,13 +52,12 @@ public class MainMenu extends JPanel {
         this.add(hardGame);
     }
 
-    public static JButton menuButton(String text, MouseListener mouseListener)
+    public static JButton makeMenuButton(String text, MouseListener mouseListener)
     {
         JButton button = new JButton(text);
         button.setFont(new GameFont(26));
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.addMouseListener(mouseListener);
-
         return button;
     }
 }

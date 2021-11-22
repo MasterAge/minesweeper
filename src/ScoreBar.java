@@ -27,7 +27,6 @@ public class ScoreBar extends JPanel {
         this.time = 0;
         this.gameTimer = new Timer();
 
-
         this.mineLabel = new JLabel(minesProgress(0, this.totalMines));
         this.mineLabel.setFont(new GameFont(FONT_SIZE));
         JPanel minePanel = new JPanel();
@@ -80,20 +79,9 @@ public class ScoreBar extends JPanel {
         this.highlightModeCheckBox.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
                 gameManager.toggleHighlightMode();
             }
         });
-    }
-
-    public void startTimer() {
-        this.gameTimer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                time++;
-                updateTimerText();
-            }
-        }, 0, PERIOD_1S);
     }
 
     public void stopTimer() {

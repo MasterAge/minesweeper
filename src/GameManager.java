@@ -32,7 +32,6 @@ public class GameManager {
     int[][] tiles;
     private int flags;
     private boolean highlightMode;
-    private boolean firstClick;
 
     private final GamePanel gameWindow;
     private final ScoreBar scoreBar;
@@ -46,7 +45,6 @@ public class GameManager {
         this.flags = 0;
         this.tiles = new int[gameWidth][gameHeight];
         this.highlightMode = false;
-        this.firstClick = false;
 
         this.gameWindow = gamePanel;
         this.scoreBar = scoreBar;
@@ -64,6 +62,7 @@ public class GameManager {
                     continue;
                 }
 
+                // Calculate the number of mines around this tile.
                 for (int k = -1; k <= 1; k++) {
                     for (int l = -1; l <= 1; l++) {
                         int x = i + k;
@@ -94,18 +93,6 @@ public class GameManager {
         return gameHeight;
     }
 
-    public int getTotalTiles() {
-        return totalTiles;
-    }
-
-    public int getMaxMines() {
-        return maxMines;
-    }
-
-    public int[][] getTiles() {
-        return tiles;
-    }
-
     public void setButtons(Tile[][] buttons) {
         this.gameButtons = buttons;
     }
@@ -119,11 +106,6 @@ public class GameManager {
         Tile button = gameButtons[row][column];
         if (button.isFlipped()) {
             return;
-        }
-
-        if (!firstClick) {
-            firstClick = true;
-//            scoreBar.startTimer();
         }
 
         if (flag) {
@@ -174,7 +156,6 @@ public class GameManager {
                     } else if (!(x == row && y == column)) {
                         button.flip();
                         showCells(x, y);
-
                     } else {
                         button.flip();
                     }

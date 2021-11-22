@@ -14,8 +14,6 @@ public class Tile extends JButton {
     public static final Color DEFAULT_COLOR = new Color(194, 193, 193);
     public static final int MAX_SPECTRUM = 255;
 
-    private int row;
-    private int column;
     private boolean flipped;
     private boolean flagged;
 
@@ -25,8 +23,6 @@ public class Tile extends JButton {
 
     public Tile(int row, int column, GameManager manager) {
         super();
-        this.row = row;
-        this.column = column;
         this.flipped = false;
         this.defaultBorder = this.getBorder();
 

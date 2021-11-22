@@ -44,6 +44,4 @@ public class GameFrame extends JFrame {
         this.setSize(width,height);
         this.setLocationRelativeTo(null);
     }
-
-
 }
